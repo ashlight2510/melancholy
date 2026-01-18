@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>마음 컨디션 체크 · 기운 회복 가이드</title>
+  <meta name="description" content="진단이 아닌, 오늘의 마음을 정리하고 기운을 회복하는 짧은 체크와 응원." />
+  
+  <!-- OG -->
+  <meta property="og:title" content="마음 컨디션 체크 · 기운 회복 가이드" />
+  <meta property="og:description" content="진단이 아닌, 오늘의 마음을 정리하고 기운을 회복하는 짧은 체크와 응원." />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/0b1220/ffffff&text=Mind+Condition+Check" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://melancholy.funnyfunny.cloud/" />
+  
+  <!-- Favicon (SVG) -->
+  <link rel="icon" href="data:image/svg+xml,
+  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+    <rect width='100' height='100' rx='20' fill='%230b1220'/>
+    <text x='50' y='62' font-size='52' text-anchor='middle' fill='white'>🌙</text>
+  </svg>">
+  <style>
+    :root{
+      --bg1:#fff8f8;
+      --bg2:#f3f0ff;
+      --card:#ffffffcc;
+      --text:#1b1b1f;
+      --muted:#666671;
+      --line:#e9e7f3;
+      --accent:#6b6eff;
+      --accent2:#f4c2c2;
+      --shadow: 0 16px 60px rgba(20, 20, 40, .10);
+      --r: 22px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(244,194,194,.55), transparent 60%),
+        radial-gradient(900px 520px at 85% 15%, rgba(107,110,255,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 80px;
+    }
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+    .brand{
+      display:flex; flex-direction:column; gap:8px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      border-radius: 999px;
+      color:var(--muted);
+      font-size:12px;
+      width: fit-content;
+      backdrop-filter: blur(10px);
+    }
+    h1{
+      margin:0;
+      font-size: 22px;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+    }
+    .sub{
+      color:var(--muted);
+      font-size: 14px;
+      line-height: 1.55;
+      margin-top: 4px;
+      max-width: 64ch;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .grid{grid-template-columns: 1fr; }
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(14px);
+    }
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: -0.2px;
+    }
+    .card p{
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .btnRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+    button{
+      appearance:none;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.7);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 12px 14px;
+      cursor:pointer;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease;
+      font-weight: 650;
+      letter-spacing: -0.1px;
+    }
+    button:hover{ transform: translateY(-1px); border-color: rgba(107,110,255,.35); }
+    button.primary{
+      background: linear-gradient(135deg, rgba(107,110,255,.18), rgba(244,194,194,.28));
+      border-color: rgba(107,110,255,.25);
+    }
+    button.ghost{
+      background: rgba(255,255,255,.45);
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .stepTitle{
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+      margin-bottom: 10px;
+    }
+    .progress{
+      color: var(--muted);
+      font-size: 12px;
+      border:1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: rgba(255,255,255,.55);
+    }
+    .q{
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(107,110,255,.18);
+    }
+    .q h3{
+      margin: 0 0 10px;
+      font-size: 15px;
+      letter-spacing: -0.2px;
+    }
+    .choices{display:grid; gap:10px; }
+    .choice{
+      display:flex; align-items:flex-start; gap:10px;
+      padding: 12px 12px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.62);
+      cursor:pointer;
+      transition: border-color .2s ease, transform .08s ease;
+      user-select:none;
+    }
+    .choice:hover{ transform: translateY(-1px); border-color: rgba(107,110,255,.30); }
+    .choice input{ margin-top:3px; }
+    .choice small{ color: var(--muted); display:block; margin-top:4px; line-height: 1.4; }
+    .rightCol .mini{
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 14px;
+      background: rgba(255,255,255,.55);
+    }
+    .mini h3{ margin:0 0 6px; font-size: 14px; }
+    .mini p{ margin:0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .tagRow{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;}
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.55);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .result{
+      display:none;
+      margin-top: 14px;
+      animation: fadeUp .22s ease both;
+    }
+    .result.show{ display:block; }
+    @keyframes fadeUp{
+      from{opacity:0; transform: translateY(8px);}
+      to{opacity:1; transform: translateY(0);}
+    }
+    .resultGrid{
+      display:grid; gap:12px;
+      grid-template-columns: 1fr;
+      margin-top: 8px;
+    }
+    .kicker{ color: var(--accent); font-weight: 750; font-size: 12px; }
+    .bigMsg{
+      font-size: 18px;
+      line-height: 1.5;
+      letter-spacing: -0.25px;
+      margin: 8px 0 0;
+    }
+    .muted{ color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .needList{ display:grid; gap:10px; margin-top: 10px; }
+    .needItem{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.62);
+      cursor:pointer;
+      user-select:none;
+    }
+    .needItem input{ margin-top:3px; }
+    .actions{
+      display:grid; gap:10px;
+      margin-top: 10px;
+    }
+    .act{
+      padding: 12px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.62);
+      display:flex; justify-content:space-between; align-items:center; gap:10px;
+    }
+    .act span{ font-weight: 700; letter-spacing:-0.1px; }
+    .copyBox{
+      margin-top: 10px;
+      padding: 12px;
+      border:1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,.62);
+    }
+    .quote{
+      font-size: 16px;
+      line-height: 1.6;
+      letter-spacing: -0.2px;
+      margin: 0;
+    }
+    .copyBtns{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 10px; }
+    .footerNote{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    /* “체크할수록 배경이 밝아지는” 효과 */
+    .glow0{ background: rgba(255,255,255,.55); }
+    .glow1{ background: rgba(255,255,255,.62); }
+    .glow2{ background: rgba(255,255,255,.70); }
+    .glow3{ background: rgba(255,255,255,.78); }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="pill">🌙 진단이 아닌, 오늘의 마음 정리</div>
+        <h1>마음 컨디션 체크 · 기운 회복 가이드</h1>
+        <div class="sub">
+          짧은 질문으로 오늘의 상태를 정리하고, 지금 가능한 행동 3가지와 응원 문장을 드려요.
+          (의료 진단/치료 목적이 아닙니다)
+        </div>
+      </div>
+      <div class="pill" id="sessionInfo">세션: 준비중</div>
+    </header>
+
+    <div class="grid">
+      <!-- Main -->
+      <section class="card" id="mainCard">
+        <div class="stepTitle">
+          <h2 id="stepH2">시작</h2>
+          <div class="progress" id="progress">0 / 3</div>
+        </div>
+
+        <!-- Step 0 -->
+        <div id="step0">
+          <p style="margin-top:0">오늘은 어떤 쪽이 더 가까워요?</p>
+          <div class="btnRow">
+            <button class="primary" onclick="startFlow('mood')">🌙 그냥 좀 우울해요</button>
+            <button class="primary" onclick="startFlow('pms')">🌸 생리 전이라 더 힘들어요</button>
+          </div>
+          <p class="footerNote">※ “생리 전” 선택은 여성/주기 관련 질문이 먼저 나와요. 성별은 다음 단계에서 선택할 수 있어요.</p>
+        </div>
+
+        <!-- Step 1 -->
+        <div id="step1" style="display:none">
+          <div class="q">
+            <h3>Q1. 성별을 선택해주세요</h3>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="gender" value="female"> 나는 여성</label>
+              <label class="choice"><input type="radio" name="gender" value="male"> 나는 남성</label>
+              <label class="choice"><input type="radio" name="gender" value="na"> 말하고 싶지 않아요</label>
+            </div>
+          </div>
+
+          <div class="btnRow">
+            <button class="ghost" onclick="goBack()">← 뒤로</button>
+            <button class="primary" onclick="toStep2()">다음 →</button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div id="step2" style="display:none">
+          <div class="q">
+            <h3>Q2. 최근 3일 기준으로 가까운 것들을 골라주세요 (복수 선택)</h3>
+            <div class="choices" id="symptomChoices"></div>
+          </div>
+
+          <div class="q" id="pmsBlock" style="display:none">
+            <h3>Q3. (선택) 생리 시작이 가까운가요?</h3>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="cycle" value="7"> 1주 이내</label>
+              <label class="choice"><input type="radio" name="cycle" value="14"> 2주 이내</label>
+              <label class="choice"><input type="radio" name="cycle" value="0"> 잘 모르겠어요</label>
+            </div>
+            <p class="footerNote">※ “잘 모르겠어요”를 선택해도 괜찮아요.</p>
+          </div>
+
+          <div class="q">
+            <h3>Q4. 요즘 수면은 어떤 편인가요?</h3>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="sleep" value="1"> 많이 잔다 / 자꾸 졸리다</label>
+              <label class="choice"><input type="radio" name="sleep" value="2"> 잠이 줄었다 / 뒤척인다</label>
+              <label class="choice"><input type="radio" name="sleep" value="0"> 비슷하다</label>
+            </div>
+          </div>
+
+          <div class="q">
+            <h3>Q5. 당이 당기거나 폭식이 있었나요?</h3>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="crave" value="2"> 자주 있었다</label>
+              <label class="choice"><input type="radio" name="crave" value="1"> 가끔 있었다</label>
+              <label class="choice"><input type="radio" name="crave" value="0"> 거의 없다</label>
+            </div>
+          </div>
+
+          <div class="btnRow">
+            <button class="ghost" onclick="goBack()">← 뒤로</button>
+            <button class="primary" onclick="showResult()">결과 보기</button>
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="result" id="result">
+          <div class="resultGrid">
+            <div class="card glow0" id="cardInterpret">
+              <div class="kicker">해석</div>
+              <div class="bigMsg" id="interpretTitle"></div>
+              <div class="muted" id="interpretBody"></div>
+            </div>
+
+            <div class="card glow0" id="cardNeeds">
+              <div class="kicker">오늘 나에게 필요한 것</div>
+              <div class="muted">체크할수록 화면이 조금 더 밝아져요. 오늘은 “허락”을 주는 게 목표예요.</div>
+              <div class="needList" id="needList"></div>
+            </div>
+
+            <div class="card glow0" id="cardActions">
+              <div class="kicker">지금 가능한 행동 3가지</div>
+              <div class="muted">거창한 목표 말고, 오늘 가능한 최소 단위로만 추천해요.</div>
+              <div class="actions" id="actionsList"></div>
+            </div>
+
+            <div class="card glow0" id="cardQuote">
+              <div class="kicker">오늘의 문장</div>
+              <div class="copyBox">
+                <p class="quote" id="quoteText">버튼을 누르면 문장이 나와요.</p>
+                <div class="copyBtns">
+                  <button class="primary" onclick="genQuote()">💌 오늘의 문장 받기</button>
+                  <button onclick="copyQuote()">📋 복사</button>
+                  <button class="ghost" onclick="restart()">↻ 다시하기</button>
+                </div>
+              </div>
+              <div class="footerNote" id="supportNote"></div>
+            </div>
+
+            <div class="card glow0" id="cardPartner" style="display:none">
+              <div class="kicker">주변인에게 보여주기</div>
+              <div class="bigMsg">“해결” 말고 “공감”이 가장 도움이 돼요.</div>
+              <div class="muted" id="partnerText"></div>
+              <div class="copyBtns">
+                <button onclick="copyPartner()">📋 이 문장들 복사</button>
+              </div>
+            </div>
+
+            <div class="footerNote">
+              ※ 이 서비스는 의료 진단/치료 목적이 아닙니다. <br/>
+              만약 매달 반복되고 일상에 큰 지장이 있거나, 자신이 너무 힘들다는 생각이 강해진다면
+              산부인과/정신건강의학과 상담이 큰 도움이 될 수 있어요.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Side -->
+      <aside class="rightCol">
+        <div class="mini">
+          <h3>오늘의 원칙</h3>
+          <p>논리로 해결하려 하기보다, 지금의 감정을 “정리”하는 게 목표예요.</p>
+          <div class="tagRow">
+            <span class="tag">공감</span>
+            <span class="tag">자기비난 줄이기</span>
+            <span class="tag">최소 행동 3개</span>
+            <span class="tag">복사 가능한 문장</span>
+          </div>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="mini">
+          <h3>데이터 저장</h3>
+          <p>이 샘플은 브라우저에서만 동작하며 서버 전송을 하지 않아요. (원하면 localStorage 저장도 붙일 수 있어요)</p>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <div class="mini">
+          <h3>추천 기능 확장</h3>
+          <p>주기 캘린더 / 알림 / 감정 로그 / "오늘은 연락 줄여도 되는 날" 배지 등으로 확장하기 좋아요.</p>
+        </div>
+
+        <div style="height:12px"></div>
+
+        <!-- Other Services -->
+        <div class="mini">
+          <h3>다른 서비스</h3>
+          <p>funnyfunny.cloud에서 더 많은 서비스를 확인하세요.</p>
+          <div style="margin-top:10px;">
+            <a href="https://funnyfunny.cloud" target="_blank" rel="noopener" style="text-decoration:none;">
+              <button class="primary" style="width:100%;">✨ 다른 서비스 보기</button>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+<script>
+  // -----------------------------
+  // State
+  // -----------------------------
+  const state = {
+    flow: null,        // 'mood' | 'pms'
+    gender: null,      // 'female' | 'male' | 'na'
+    symptoms: new Set(),
+    cycle: null,       // 7 | 14 | 0 | null
+    sleep: null,       // 0 | 1 | 2
+    crave: null,       // 0 | 1 | 2
+    score: 0,
+    severity: 'low'    // low | mid | high
+  };
+
+  const steps = ['step0','step1','step2'];
+  let currentStep = 0;
+
+  // 질문 문항(복수선택) + 가중치
+  const SYMPTOMS = [
+    { id:'sad', label:'이유 없이 슬픔/공허감이 올라온다', w:2 },
+    { id:'irrit', label:'평소보다 예민하거나 짜증이 늘었다', w:2 },
+    { id:'tired', label:'기운이 빠지고 무기력하다', w:2 },
+    { id:'cry', label:'눈물이 많아졌다', w:2 },
+    { id:'alone', label:'혼자 있고 싶고 연락이 부담스럽다', w:1 },
+    { id:'focus', label:'집중이 잘 안 된다', w:1 },
+    { id:'anx', label:'불안이 늘었다', w:2 },
+    { id:'body', label:'몸이 붓거나 가슴/배가 불편하다', w:1 }, // PMS에 자주 동반
+  ];
+
+  const NEEDS = [
+    '오늘은 생산성(성과)에 대한 기대를 낮춰도 괜찮아요',
+    '중요한 결정/큰 약속은 가능한 미뤄도 돼요',
+    '자기비난 대신 “지금은 컨디션의 영향”이라고 말해주기',
+    '혼자 있고 싶으면 그 욕구를 존중해도 괜찮아요',
+    '말로 정리하기 힘들면, 조용히 쉬어도 충분해요'
+  ];
+
+  const ACTION_BANK = {
+    low: [
+      '따뜻한 물/차 한 잔 마시기',
+      '창문 열고 햇빛 3~5분 받기',
+      '가벼운 스트레칭 60초만'
+    ],
+    mid: [
+      '10분 산책 또는 계단 천천히 오르기',
+      '카페인/술 오늘만 줄이기',
+      '샤워 후 바로 눕기(핸드폰은 잠깐 내려두기)'
+    ],
+    high: [
+      '오늘 일정 1개만 줄이기(최소 하나)',
+      '따뜻한 음식/단백질 간단히 챙기기',
+      '신뢰하는 사람에게 “지금 좀 힘들어” 한 줄 보내기'
+    ]
+  };
+
+  // 상태 기반 문장
+  const QUOTES = {
+    mood: {
+      low: [
+        '오늘의 나는 고장 난 게 아니라, 잠시 지친 상태일 뿐이에요.',
+        '지금의 감정은 “이상함”이 아니라 “신호”일 수 있어요. 천천히 다뤄도 돼요.'
+      ],
+      mid: [
+        '지금은 버티는 능력이 아니라, 나를 덜 몰아붙이는 능력이 필요한 날이에요.',
+        '괜찮아지려고 애쓰는 것 자체가 이미 잘하고 있는 거예요.'
+      ],
+      high: [
+        '오늘은 크게 잘하려고 하지 않아도 돼요. 살아내는 것만으로 충분해요.',
+        '지금의 감정이 오래 머물지 않도록, 도움을 받는 것도 좋은 선택이에요.'
+      ]
+    },
+    pms: {
+      low: [
+        '이 시기는 몸의 리듬 때문에 예민해질 수 있어요. 네 잘못이 아니에요.',
+        '지금은 “호르몬의 계절” 같은 때예요. 잠깐 흐린 날이라고 생각해도 돼요.'
+      ],
+      mid: [
+        '배란 후~생리 전엔 기분을 잡아주는 신호가 줄어들 수 있어요. 흔한 일이에요.',
+        '지금은 해결보다 안정이 먼저예요. 오늘은 가볍게만 가도 돼요.'
+      ],
+      high: [
+        '이 시기 우울감이 크면 PMDD처럼 치료가 도움이 되는 경우도 있어요. 혼자만의 문제가 아니에요.',
+        '지금의 나는 약한 게 아니라, 몸이 신호를 크게 보내는 중일 수 있어요.'
+      ]
+    }
+  };
+
+  const PARTNER_SCRIPT = [
+    '“왜 그래?” 대신 → “그럴 수 있겠다. 지금 많이 힘들겠다”',
+    '조언/해결책보다 → 판단 없이 들어주기(“응… 그랬구나”)',
+    '짧은 체크인: “오늘 컨디션 어때?” “답 늦어도 괜찮아”',
+    '예민함을 개인적으로 받아들이지 않기(사랑이 식어서가 아님)',
+    '혼자 있고 싶을 땐 존중하기: “기다릴게. 필요하면 말해줘”'
+  ];
+
+  // -----------------------------
+  // Init
+  // -----------------------------
+  const symptomChoicesEl = document.getElementById('symptomChoices');
+  SYMPTOMS.forEach(s => {
+    const label = document.createElement('label');
+    label.className = 'choice';
+    label.innerHTML = `<input type="checkbox" value="${s.id}" /> <div>${s.label}<small>(${s.w}점)</small></div>`;
+    label.querySelector('input').addEventListener('change', (e)=>{
+      if(e.target.checked) state.symptoms.add(s.id);
+      else state.symptoms.delete(s.id);
+    });
+    symptomChoicesEl.appendChild(label);
+  });
+
+  refreshSessionInfo();
+
+  // -----------------------------
+  // Step navigation
+  // -----------------------------
+  function startFlow(flow){
+    state.flow = flow; // 'mood' | 'pms'
+    currentStep = 1;
+    renderStep();
+  }
+
+  function goBack(){
+    if(currentStep === 0) return;
+    if(currentStep === 2) currentStep = 1;
+    else if(currentStep === 1) currentStep = 0;
+    renderStep();
+  }
+
+  function toStep2(){
+    const g = document.querySelector('input[name="gender"]:checked');
+    if(!g){
+      alert('성별 선택(또는 “말하고 싶지 않아요”)을 해주세요.');
+      return;
+    }
+    state.gender = g.value;
+
+    currentStep = 2;
+    renderStep();
+  }
+
+  function renderStep(){
+    steps.forEach((id,i)=>{
+      document.getElementById(id).style.display = (i===currentStep) ? 'block':'none';
+    });
+    document.getElementById('result').classList.remove('show');
+
+    // 제목/진행
+    const titles = ['시작', '기본 정보', '컨디션 질문'];
+    document.getElementById('stepH2').textContent = titles[currentStep];
+    document.getElementById('progress').textContent = `${Math.min(currentStep,3)} / 3`;
+
+    // PMS 블록 노출 조건:
+    // - 사용자가 flow='pms'로 들어왔거나
+    // - 성별이 여성이고(또는 미공개라도) PMS 질문을 보고 싶어할 수 있으니 flow 기준으로 표시
+    const showPms = (state.flow === 'pms');
+    document.getElementById('pmsBlock').style.display = showPms ? 'block':'none';
+
+    refreshSessionInfo();
+  }
+
+  // -----------------------------
+  // Scoring & Result
+  // -----------------------------
+  function showResult(){
+    // Read radios
+    const cycle = document.querySelector('input[name="cycle"]:checked');
+    const sleep = document.querySelector('input[name="sleep"]:checked');
+    const crave = document.querySelector('input[name="crave"]:checked');
+    state.cycle = cycle ? parseInt(cycle.value,10) : null;
+    state.sleep = sleep ? parseInt(sleep.value,10) : 0;
+    state.crave = crave ? parseInt(crave.value,10) : 0;
+
+    // Compute score
+    let score = 0;
+    for(const sid of state.symptoms){
+      const item = SYMPTOMS.find(x=>x.id===sid);
+      if(item) score += item.w;
+    }
+    score += state.sleep; // 0~2
+    score += state.crave; // 0~2
+
+    // PMS 플로우 가중치 (생리 1주 이내 +1, 2주 이내 +0.5 느낌을 점수로 처리)
+    if(state.flow === 'pms'){
+      if(state.cycle === 7) score += 1;
+      if(state.cycle === 14) score += 0;
+    }
+    state.score = score;
+
+    // Severity thresholds (튜닝 가능)
+    // 최대치 대략: 증상(2*6 +1*2=14) + 수면2 + 식욕2 + pms1 = 19
+    if(score <= 6) state.severity = 'low';
+    else if(score <= 12) state.severity = 'mid';
+    else state.severity = 'high';
+
+    // Build result copy
+    const isPms = (state.flow === 'pms');
+
+    // 해석 타이틀/바디
+    const interpretTitle = isPms
+      ? '지금의 우울감은 “당신 탓”이 아니라, 몸의 리듬 영향일 가능성이 커요.'
+      : '지금의 우울감은 성격 문제가 아니라, 컨디션과 스트레스 신호일 수 있어요.';
+
+    const interpretBody = isPms
+      ? `배란 후~생리 전에는 에스트로겐/프로게스테론 변화로 기분을 잡아주는 신호(세로토닌)가 흔들릴 수 있어요.
+이때는 예민함, 무기력, 눈물, 불안이 함께 나타나기도 해요.
+오늘은 “해결”보다 “안정”이 먼저인 날로 잡아도 괜찮아요.`
+      : `최근 며칠의 피로, 압박, 수면 변화가 감정을 더 크게 느끼게 만들 수 있어요.
+지금 필요한 건 “나를 몰아붙이는 논리”가 아니라, “내 상태를 인정하는 말”일 때가 많아요.
+오늘은 작은 단위로만 회복해도 충분해요.`;
+
+    document.getElementById('interpretTitle').textContent = interpretTitle;
+    document.getElementById('interpretBody').textContent = interpretBody;
+
+    // Needs checklist
+    const needListEl = document.getElementById('needList');
+    needListEl.innerHTML = '';
+    NEEDS.forEach((t,idx)=>{
+      const row = document.createElement('label');
+      row.className = 'needItem';
+      row.innerHTML = `<input type="checkbox" data-need="1" /> <div>${t}</div>`;
+      row.querySelector('input').addEventListener('change', updateGlow);
+      needListEl.appendChild(row);
+    });
+
+    // Actions
+    const actionsEl = document.getElementById('actionsList');
+    actionsEl.innerHTML = '';
+    const picks = ACTION_BANK[state.severity].slice(0,3);
+    picks.forEach((a)=>{
+      const div = document.createElement('div');
+      div.className = 'act';
+      div.innerHTML = `<span>${a}</span><small style="color:var(--muted)">오늘만</small>`;
+      actionsEl.appendChild(div);
+    });
+
+    // Support note
+    const supportNote = document.getElementById('supportNote');
+    supportNote.textContent =
+      (state.severity === 'high')
+        ? '※ 힘듦이 크고 반복된다면, 상담/진료는 “약함”이 아니라 “회복 속도를 높이는 선택”일 수 있어요.'
+        : '※ 오늘은 충분히 잘하고 있어요. 결과는 참고용이고, 당신은 그대로 괜찮아요.';
+
+    // Partner card: 여성(PMS) 흐름일 때 기본 노출 + 남성/미공개도 볼 수 있게
+    document.getElementById('cardPartner').style.display = (isPms ? 'block' : 'none');
+    document.getElementById('partnerText').innerHTML = `
+      <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted); line-height:1.7">
+        ${PARTNER_SCRIPT.map(x=>`<li>${x}</li>`).join('')}
+      </ul>
+      <div style="margin-top:10px; color:var(--muted)">
+        추천 문장: “지금은 네 잘못 아니야” · “말 없어도 괜찮아” · “내가 여기 있어”
+      </div>
+    `;
+
+    // Show result
+    document.getElementById('result').classList.add('show');
+    // 초기 문장 자동 생성 (UX)
+    genQuote();
+
+    // top scroll to result
+    document.getElementById('mainCard').scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function updateGlow(){
+    // needs 체크 개수에 따라 카드 배경을 밝게
+    const checked = document.querySelectorAll('input[data-need="1"]:checked').length;
+    const level = Math.min(3, checked);
+
+    const ids = ['cardInterpret','cardNeeds','cardActions','cardQuote','cardPartner'];
+    ids.forEach(id=>{
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.classList.remove('glow0','glow1','glow2','glow3');
+      el.classList.add(`glow${level}`);
+    });
+  }
+
+  // -----------------------------
+  // Quote generator & copy
+  // -----------------------------
+  function genQuote(){
+    const bank = QUOTES[state.flow || 'mood'][state.severity || 'low'];
+    const q = bank[Math.floor(Math.random()*bank.length)];
+    document.getElementById('quoteText').textContent = q;
+  }
+
+  async function copyQuote(){
+    const text = document.getElementById('quoteText').textContent.trim();
+    if(!text) return;
+    try{
+      await navigator.clipboard.writeText(text);
+      toast('복사했어요!');
+    }catch(e){
+      prompt('아래 문장을 복사하세요:', text);
+    }
+  }
+
+  async function copyPartner(){
+    const lines = [
+      '주변인에게 부탁하고 싶은 방식',
+      ...PARTNER_SCRIPT.map(s=>`- ${s}`),
+      '- 추천 문장: “지금은 네 잘못 아니야” / “말 없어도 괜찮아” / “내가 여기 있어”'
+    ].join('\n');
+    try{
+      await navigator.clipboard.writeText(lines);
+      toast('복사했어요!');
+    }catch(e){
+      prompt('아래 내용을 복사하세요:', lines);
+    }
+  }
+
+  function restart(){
+    // reset
+    state.flow = null;
+    state.gender = null;
+    state.symptoms = new Set();
+    state.cycle = null;
+    state.sleep = null;
+    state.crave = null;
+    state.score = 0;
+    state.severity = 'low';
+
+    // reset inputs
+    document.querySelectorAll('input').forEach(i=>{
+      if(i.type==='checkbox' || i.type==='radio') i.checked = false;
+    });
+
+    currentStep = 0;
+    renderStep();
+    toast('처음으로 돌아왔어요.');
+  }
+
+  function refreshSessionInfo(){
+    const info = [];
+    if(state.flow) info.push(state.flow==='pms' ? 'PMS 흐름' : '일반 흐름');
+    if(state.gender){
+      const g = {female:'여성', male:'남성', na:'비공개'}[state.gender];
+      info.push(g);
+    }
+    document.getElementById('sessionInfo').textContent = info.length ? `세션: ${info.join(' · ')}` : '세션: 시작 전';
+  }
+
+  // tiny toast
+  let tmr = null;
+  function toast(msg){
+    let el = document.getElementById('toast');
+    if(!el){
+      el = document.createElement('div');
+      el.id = 'toast';
+      el.style.position = 'fixed';
+      el.style.left = '50%';
+      el.style.bottom = '20px';
+      el.style.transform = 'translateX(-50%)';
+      el.style.padding = '10px 14px';
+      el.style.border = '1px solid rgba(255,255,255,.6)';
+      el.style.background = 'rgba(30,30,40,.75)';
+      el.style.color = 'white';
+      el.style.borderRadius = '999px';
+      el.style.backdropFilter = 'blur(10px)';
+      el.style.boxShadow = '0 12px 40px rgba(0,0,0,.18)';
+      el.style.fontSize = '13px';
+      el.style.zIndex = '9999';
+      el.style.opacity = '0';
+      el.style.transition = 'opacity .15s ease';
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    el.style.opacity = '1';
+    clearTimeout(tmr);
+    tmr = setTimeout(()=>{ el.style.opacity='0'; }, 1200);
+  }
+
+  // Initial render
+  renderStep();
+</script>
+</body>
+</html>
