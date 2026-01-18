@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>마음 컨디션 체크 · 기운 회복 가이드</title>
-  <meta name="description" content="진단이 아닌, 오늘의 마음을 정리하고 기운을 회복하는 짧은 체크와 응원." />
+  <title>Mind Condition Check · Energy Recovery Guide</title>
+  <meta name="description" content="Not a diagnosis, but a brief check to organize today's feelings and recover energy." />
   
   <!-- OG -->
-  <meta property="og:title" content="마음 컨디션 체크 · 기운 회복 가이드" />
-  <meta property="og:description" content="진단이 아닌, 오늘의 마음을 정리하고 기운을 회복하는 짧은 체크와 응원." />
+  <meta property="og:title" content="Mind Condition Check · Energy Recovery Guide" />
+  <meta property="og:description" content="Not a diagnosis, but a brief check to organize today's feelings and recover energy." />
   <meta property="og:image" content="https://dummyimage.com/1200x630/0b1220/ffffff&text=Mind+Condition+Check" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://melancholy.funnyfunny.cloud/" />
+  <meta property="og:url" content="https://melancholy.funnyfunny.cloud/en.html" />
   
   <!-- Favicon (SVG) -->
   <link rel="icon" href="data:image/svg+xml,
@@ -35,7 +35,7 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
       color:var(--text);
       background:
         radial-gradient(900px 520px at 15% 10%, rgba(244,194,194,.55), transparent 60%),
@@ -259,19 +259,19 @@
   <div class="wrap">
     <header>
       <div class="langSwitch">
-        <button onclick="window.location.href='en.html'">🇺🇸 English</button>
+        <button onclick="window.location.href='index.html'">🇰🇷 한국어</button>
       </div>
-      <div class="pill">🌙 진단이 아닌, 오늘의 마음 정리</div>
-      <h1>마음 컨디션 체크 · 기운 회복 가이드</h1>
+      <div class="pill">🌙 Not a diagnosis, organizing today's feelings</div>
+      <h1>Mind Condition Check · Energy Recovery Guide</h1>
       <div class="sub">
-        짧은 질문으로 오늘의 상태를 정리하고, 지금 가능한 행동 3가지와 응원 문장을 드려요.
-        (의료 진단/치료 목적이 아닙니다)
+        A brief check to organize today's state with short questions, and get 3 actionable steps and encouraging words.
+        (Not for medical diagnosis/treatment purposes)
       </div>
     </header>
 
     <div id="questionCard" class="card">
       <div class="progressBar">
-        <span class="progressText" id="progressText">질문 1 / 1</span>
+        <span class="progressText" id="progressText">Question 1 / 1</span>
       </div>
       <div class="progressBarInner">
         <div class="progressBarFill" id="progressBarFill" style="width:0%"></div>
@@ -283,49 +283,49 @@
     <div class="result" id="result">
       <div class="resultGrid">
         <div class="card glow0" id="cardInterpret">
-          <div class="kicker">해석</div>
+          <div class="kicker">Interpretation</div>
           <div class="bigMsg" id="interpretTitle"></div>
           <div class="muted" id="interpretBody"></div>
         </div>
 
         <div class="card glow0" id="cardNeeds">
-          <div class="kicker">오늘 나에게 필요한 것</div>
-          <div class="muted">체크할수록 화면이 조금 더 밝아져요. 오늘은 "허락"을 주는 게 목표예요.</div>
+          <div class="kicker">What I need today</div>
+          <div class="muted">The screen gets a bit brighter as you check items. Today's goal is to give yourself "permission."</div>
           <div class="needList" id="needList"></div>
         </div>
 
         <div class="card glow0" id="cardActions">
-          <div class="kicker">지금 가능한 행동 3가지</div>
-          <div class="muted">거창한 목표 말고, 오늘 가능한 최소 단위로만 추천해요.</div>
+          <div class="kicker">3 Actions I can take now</div>
+          <div class="muted">Not grand goals, but recommendations in the smallest units possible for today.</div>
           <div class="actions" id="actionsList"></div>
         </div>
 
         <div class="card glow0" id="cardQuote">
-          <div class="kicker">오늘의 문장</div>
+          <div class="kicker">Today's message</div>
           <div class="copyBox">
-            <p class="quote" id="quoteText">버튼을 누르면 문장이 나와요.</p>
+            <p class="quote" id="quoteText">Click the button to see the message.</p>
             <div class="copyBtns">
-              <button class="primary" onclick="genQuote()">💌 오늘의 문장 받기</button>
-              <button onclick="copyQuote()">📋 복사</button>
-              <button class="ghost" onclick="restart()">↻ 다시하기</button>
+              <button class="primary" onclick="genQuote()">💌 Get today's message</button>
+              <button onclick="copyQuote()">📋 Copy</button>
+              <button class="ghost" onclick="restart()">↻ Restart</button>
             </div>
           </div>
           <div class="footerNote" id="supportNote"></div>
         </div>
 
         <div class="card glow0" id="cardPartner" style="display:none">
-          <div class="kicker">주변인에게 보여주기</div>
-          <div class="bigMsg">"해결" 말고 "공감"이 가장 도움이 돼요.</div>
+          <div class="kicker">Show to people around you</div>
+          <div class="bigMsg">"Empathy" rather than "solutions" is what helps most.</div>
           <div class="muted" id="partnerText"></div>
           <div class="copyBtns">
-            <button onclick="copyPartner()">📋 이 문장들 복사</button>
+            <button onclick="copyPartner()">📋 Copy these messages</button>
           </div>
         </div>
 
         <div class="footerNote">
-          ※ 이 서비스는 의료 진단/치료 목적이 아닙니다. <br/>
-          만약 매달 반복되고 일상에 큰 지장이 있거나, 자신이 너무 힘들다는 생각이 강해진다면
-          산부인과/정신건강의학과 상담이 큰 도움이 될 수 있어요.
+          ※ This service is not for medical diagnosis/treatment purposes. <br/>
+          If symptoms repeat monthly and significantly impact daily life, or if you feel very distressed,
+          consulting with a gynecologist or mental health professional can be very helpful.
         </div>
       </div>
     </div>
@@ -346,155 +346,155 @@
     severity: 'low'    // low | mid | high
   };
 
-  // 질문 배열
+  // Questions array
   const QUESTIONS = [];
   let currentQuestionIndex = 0;
 
   function buildQuestions(){
     QUESTIONS.length = 0;
     
-    // Q0: 시작 선택
+    // Q0: Start choice
     QUESTIONS.push({
       id: 'start',
-      text: '오늘은 어떤 쪽이 더 가까워요?',
+      text: 'Which one feels closer to you today?',
       options: [
-        { text: '🌙 그냥 좀 우울해요', value: 'mood' },
-        { text: '🌸 생리 전이라 더 힘들어요', value: 'pms' }
+        { text: '🌙 Just feeling a bit down', value: 'mood' },
+        { text: '🌸 It\'s worse before my period', value: 'pms' }
       ]
     });
 
-    // Q1: 성별
+    // Q1: Gender
     QUESTIONS.push({
       id: 'gender',
-      text: '성별을 선택해주세요',
+      text: 'Please select your gender',
       options: [
-        { text: '나는 여성', value: 'female' },
-        { text: '나는 남성', value: 'male' },
-        { text: '말하고 싶지 않아요', value: 'na' }
+        { text: 'I am female', value: 'female' },
+        { text: 'I am male', value: 'male' },
+        { text: 'Prefer not to say', value: 'na' }
       ]
     });
 
-    // Q2-Q9: 증상들 (단일 선택으로 변경)
+    // Q2-Q9: Symptoms (single choice)
     const SYMPTOMS = [
-      { id:'sad', label:'이유 없이 슬픔/공허감이 올라온다', w:2 },
-      { id:'irrit', label:'평소보다 예민하거나 짜증이 늘었다', w:2 },
-      { id:'tired', label:'기운이 빠지고 무기력하다', w:2 },
-      { id:'cry', label:'눈물이 많아졌다', w:2 },
-      { id:'alone', label:'혼자 있고 싶고 연락이 부담스럽다', w:1 },
-      { id:'focus', label:'집중이 잘 안 된다', w:1 },
-      { id:'anx', label:'불안이 늘었다', w:2 },
-      { id:'body', label:'몸이 붓거나 가슴/배가 불편하다', w:1 }
+      { id:'sad', label:'Feeling sad or empty for no reason', w:2 },
+      { id:'irrit', label:'More irritable or easily annoyed than usual', w:2 },
+      { id:'tired', label:'Lack of energy and feeling lethargic', w:2 },
+      { id:'cry', label:'Crying more often', w:2 },
+      { id:'alone', label:'Wanting to be alone, contact feels burdensome', w:1 },
+      { id:'focus', label:'Trouble concentrating', w:1 },
+      { id:'anx', label:'Increased anxiety', w:2 },
+      { id:'body', label:'Bloating or discomfort in chest/stomach', w:1 }
     ];
 
     SYMPTOMS.forEach(s => {
       QUESTIONS.push({
         id: `symptom_${s.id}`,
-        text: `최근 3일 동안 "${s.label}"은 어떤가요?`,
+        text: `Over the past 3 days, have you experienced "${s.label}"?`,
         options: [
-          { text: '그렇다', value: s.id, weight: s.w },
-          { text: '아니다', value: null, weight: 0 }
+          { text: 'Yes', value: s.id, weight: s.w },
+          { text: 'No', value: null, weight: 0 }
         ]
       });
     });
 
-    // Q10: 생리 시작 (PMS 플로우일 때만)
+    // Q10: Period timing (only for PMS flow)
     QUESTIONS.push({
       id: 'cycle',
-      text: '생리 시작이 가까운가요?',
+      text: 'Is your period starting soon?',
       options: [
-        { text: '1주 이내', value: 7 },
-        { text: '2주 이내', value: 14 },
-        { text: '잘 모르겠어요', value: 0 }
+        { text: 'Within 1 week', value: 7 },
+        { text: 'Within 2 weeks', value: 14 },
+        { text: 'Not sure', value: 0 }
       ],
       conditional: (state) => state.flow === 'pms'
     });
 
-    // Q11: 수면
+    // Q11: Sleep
     QUESTIONS.push({
       id: 'sleep',
-      text: '요즘 수면은 어떤 편인가요?',
+      text: 'How has your sleep been lately?',
       options: [
-        { text: '많이 잔다 / 자꾸 졸리다', value: 1 },
-        { text: '잠이 줄었다 / 뒤척인다', value: 2 },
-        { text: '비슷하다', value: 0 }
+        { text: 'Sleeping a lot / Feeling drowsy', value: 1 },
+        { text: 'Sleep decreased / Tossing and turning', value: 2 },
+        { text: 'About the same', value: 0 }
       ]
     });
 
-    // Q12: 식욕
+    // Q12: Cravings
     QUESTIONS.push({
       id: 'crave',
-      text: '당이 당기거나 폭식이 있었나요?',
+      text: 'Have you had sugar cravings or binge eating?',
       options: [
-        { text: '자주 있었다', value: 2 },
-        { text: '가끔 있었다', value: 1 },
-        { text: '거의 없다', value: 0 }
+        { text: 'Often', value: 2 },
+        { text: 'Sometimes', value: 1 },
+        { text: 'Rarely or never', value: 0 }
       ]
     });
   }
 
   const NEEDS = [
-    '오늘은 생산성(성과)에 대한 기대를 낮춰도 괜찮아요',
-    '중요한 결정/큰 약속은 가능한 미뤄도 돼요',
-    '자기비난 대신 "지금은 컨디션의 영향"이라고 말해주기',
-    '혼자 있고 싶으면 그 욕구를 존중해도 괜찮아요',
-    '말로 정리하기 힘들면, 조용히 쉬어도 충분해요'
+    'It\'s okay to lower expectations for productivity (performance) today',
+    'It\'s okay to postpone important decisions or big commitments if possible',
+    'Instead of self-blame, tell yourself "this is the effect of my current condition"',
+    'If you want to be alone, it\'s okay to honor that need',
+    'If it\'s hard to express in words, it\'s enough to just rest quietly'
   ];
 
   const ACTION_BANK = {
     low: [
-      '따뜻한 물/차 한 잔 마시기',
-      '창문 열고 햇빛 3~5분 받기',
-      '가벼운 스트레칭 60초만'
+      'Drink a warm cup of water or tea',
+      'Open a window and get 3-5 minutes of sunlight',
+      'Light stretching for just 60 seconds'
     ],
     mid: [
-      '10분 산책 또는 계단 천천히 오르기',
-      '카페인/술 오늘만 줄이기',
-      '샤워 후 바로 눕기(핸드폰은 잠깐 내려두기)'
+      '10-minute walk or slowly climbing stairs',
+      'Reduce caffeine/alcohol just for today',
+      'Take a shower and lie down (put your phone away for a bit)'
     ],
     high: [
-      '오늘 일정 1개만 줄이기(최소 하나)',
-      '따뜻한 음식/단백질 간단히 챙기기',
-      '신뢰하는 사람에게 "지금 좀 힘들어" 한 줄 보내기'
+      'Cancel just one commitment today (at least one)',
+      'Eat something warm or have some simple protein',
+      'Send one line to someone you trust: "I\'m having a hard time right now"'
     ]
   };
 
   const QUOTES = {
     mood: {
       low: [
-        '오늘의 나는 고장 난 게 아니라, 잠시 지친 상태일 뿐이에요.',
-        '지금의 감정은 "이상함"이 아니라 "신호"일 수 있어요. 천천히 다뤄도 돼요.'
+        'Today\'s you is not broken, just temporarily tired.',
+        'The emotions you\'re feeling now aren\'t "wrong" - they might be a "signal." It\'s okay to take it slow.'
       ],
       mid: [
-        '지금은 버티는 능력이 아니라, 나를 덜 몰아붙이는 능력이 필요한 날이에요.',
-        '괜찮아지려고 애쓰는 것 자체가 이미 잘하고 있는 거예요.'
+        'Right now, you don\'t need the ability to push through - you need the ability to be gentler with yourself.',
+        'Trying to feel better itself means you\'re already doing well.'
       ],
       high: [
-        '오늘은 크게 잘하려고 하지 않아도 돼요. 살아내는 것만으로 충분해요.',
-        '지금의 감정이 오래 머물지 않도록, 도움을 받는 것도 좋은 선택이에요.'
+        'You don\'t have to try to do great today. Just getting through is enough.',
+        'If these feelings persist, it\'s okay to seek help.'
       ]
     },
     pms: {
       low: [
-        '이 시기는 몸의 리듬 때문에 예민해질 수 있어요. 네 잘못이 아니에요.',
-        '지금은 "호르몬의 계절" 같은 때예요. 잠깐 흐린 날이라고 생각해도 돼요.'
+        'This time can make you more sensitive due to your body\'s rhythm. It\'s not your fault.',
+        'Right now is like a "hormonal season." It\'s okay to think of it as a cloudy day.'
       ],
       mid: [
-        '배란 후~생리 전엔 기분을 잡아주는 신호가 줄어들 수 있어요. 흔한 일이에요.',
-        '지금은 해결보다 안정이 먼저예요. 오늘은 가볍게만 가도 돼요.'
+        'After ovulation until your period, the signals that stabilize mood can decrease. This is common.',
+        'Right now, stability comes before solutions. It\'s okay to take it easy today.'
       ],
       high: [
-        '이 시기 우울감이 크면 PMDD처럼 치료가 도움이 되는 경우도 있어요. 혼자만의 문제가 아니에요.',
-        '지금의 나는 약한 게 아니라, 몸이 신호를 크게 보내는 중일 수 있어요.'
+        'If depression is severe during this time, treatment (like for PMDD) can help. You\'re not alone in this.',
+        'You\'re not weak - your body might be sending stronger signals right now.'
       ]
     }
   };
 
   const PARTNER_SCRIPT = [
-    '"왜 그래?" 대신 → "그럴 수 있겠다. 지금 많이 힘들겠다"',
-    '조언/해결책보다 → 판단 없이 들어주기("응… 그랬구나")',
-    '짧은 체크인: "오늘 컨디션 어때?" "답 늦어도 괜찮아"',
-    '예민함을 개인적으로 받아들이지 않기(사랑이 식어서가 아님)',
-    '혼자 있고 싶을 땐 존중하기: "기다릴게. 필요하면 말해줘"'
+    'Instead of "What\'s wrong?" → "I can understand. You must be going through a lot right now"',
+    'Rather than advice/solutions → Just listen without judgment ("I see... I hear you")',
+    'Brief check-in: "How are you feeling today?" "It\'s okay if you respond late"',
+    'Don\'t take sensitivity personally (it doesn\'t mean love has faded)',
+    'When they want to be alone, respect it: "I\'ll wait. Let me know if you need anything"'
   ];
 
   // -----------------------------
@@ -521,7 +521,7 @@
     const questionNum = currentQuestionIndex + 1;
     const progress = (questionNum / totalQuestions) * 100;
 
-    document.getElementById('progressText').textContent = `질문 ${questionNum} / ${totalQuestions}`;
+    document.getElementById('progressText').textContent = `Question ${questionNum} / ${totalQuestions}`;
     document.getElementById('progressBarFill').style.width = `${progress}%`;
 
     const contentEl = document.getElementById('questionContent');
@@ -544,7 +544,7 @@
   }
 
   function handleAnswer(value, weight, questionId){
-    // 상태 저장
+    // Save state
     if(questionId === 'start'){
       state.flow = value;
     } else if(questionId === 'gender'){
@@ -562,7 +562,7 @@
       }
     }
 
-    // 다음 질문으로 자동 이동
+    // Auto-advance to next question
     currentQuestionIndex++;
     setTimeout(() => {
       renderQuestion();
@@ -602,18 +602,18 @@
 
     const isPms = (state.flow === 'pms');
 
-    // 해석
+    // Interpretation
     const interpretTitle = isPms
-      ? '지금의 우울감은 "당신 탓"이 아니라, 몸의 리듬 영향일 가능성이 커요.'
-      : '지금의 우울감은 성격 문제가 아니라, 컨디션과 스트레스 신호일 수 있어요.';
+      ? 'Your current sadness isn\'t "your fault" - it\'s likely influenced by your body\'s rhythm.'
+      : 'Your current sadness isn\'t a personality issue - it could be a signal of your condition and stress.';
 
     const interpretBody = isPms
-      ? `배란 후~생리 전에는 에스트로겐/프로게스테론 변화로 기분을 잡아주는 신호(세로토닌)가 흔들릴 수 있어요.
-이때는 예민함, 무기력, 눈물, 불안이 함께 나타나기도 해요.
-오늘은 "해결"보다 "안정"이 먼저인 날로 잡아도 괜찮아요.`
-      : `최근 며칠의 피로, 압박, 수면 변화가 감정을 더 크게 느끼게 만들 수 있어요.
-지금 필요한 건 "나를 몰아붙이는 논리"가 아니라, "내 상태를 인정하는 말"일 때가 많아요.
-오늘은 작은 단위로만 회복해도 충분해요.`;
+      ? `After ovulation until your period, estrogen/progesterone changes can affect mood-stabilizing signals (serotonin).
+During this time, sensitivity, lethargy, crying, and anxiety can appear together.
+It\'s okay to prioritize "stability" over "solutions" today.`
+      : `Recent fatigue, pressure, and sleep changes can make you feel emotions more intensely.
+What you need now isn\'t "logic that pushes you" but "words that acknowledge your state."
+It\'s enough to recover in small steps today.`;
 
     document.getElementById('interpretTitle').textContent = interpretTitle;
     document.getElementById('interpretBody').textContent = interpretBody;
@@ -636,7 +636,7 @@
     picks.forEach(a => {
       const div = document.createElement('div');
       div.className = 'act';
-      div.innerHTML = `<span>${a}</span><small style="color:var(--muted)">오늘만</small>`;
+      div.innerHTML = `<span>${a}</span><small style="color:var(--muted)">Just today</small>`;
       actionsEl.appendChild(div);
     });
 
@@ -644,8 +644,8 @@
     const supportNote = document.getElementById('supportNote');
     supportNote.textContent =
       (state.severity === 'high')
-        ? '※ 힘듦이 크고 반복된다면, 상담/진료는 "약함"이 아니라 "회복 속도를 높이는 선택"일 수 있어요.'
-        : '※ 오늘은 충분히 잘하고 있어요. 결과는 참고용이고, 당신은 그대로 괜찮아요.';
+        ? '※ If distress is severe and recurring, consulting/treatment isn\'t "weakness" but a choice that can speed up recovery.'
+        : '※ You\'re doing well enough today. These results are for reference, and you\'re okay as you are.';
 
     // Partner card
     document.getElementById('cardPartner').style.display = (isPms ? 'block' : 'none');
@@ -654,7 +654,7 @@
         ${PARTNER_SCRIPT.map(x=>`<li>${x}</li>`).join('')}
       </ul>
       <div style="margin-top:10px; color:var(--muted)">
-        추천 문장: "지금은 네 잘못 아니야" · "말 없어도 괜찮아" · "내가 여기 있어"
+        Recommended phrases: "It\'s not your fault right now" · "It\'s okay if you don\'t want to talk" · "I\'m here for you"
       </div>
     `;
 
@@ -688,23 +688,23 @@
     if(!text) return;
     try{
       await navigator.clipboard.writeText(text);
-      toast('복사했어요!');
+      toast('Copied!');
     }catch(e){
-      prompt('아래 문장을 복사하세요:', text);
+      prompt('Copy the message below:', text);
     }
   }
 
   async function copyPartner(){
     const lines = [
-      '주변인에게 부탁하고 싶은 방식',
+      'Ways to ask people around you',
       ...PARTNER_SCRIPT.map(s=>`- ${s}`),
-      '- 추천 문장: "지금은 네 잘못 아니야" / "말 없어도 괜찮아" / "내가 여기 있어"'
+      '- Recommended phrases: "It\'s not your fault right now" / "It\'s okay if you don\'t want to talk" / "I\'m here for you"'
     ].join('\n');
     try{
       await navigator.clipboard.writeText(lines);
-      toast('복사했어요!');
+      toast('Copied!');
     }catch(e){
-      prompt('아래 내용을 복사하세요:', lines);
+      prompt('Copy the content below:', lines);
     }
   }
 
@@ -719,7 +719,7 @@
     state.severity = 'low';
     currentQuestionIndex = 0;
     renderQuestion();
-    toast('처음으로 돌아왔어요.');
+    toast('Returned to the beginning.');
   }
 
   let tmr = null;
